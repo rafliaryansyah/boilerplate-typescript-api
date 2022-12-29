@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  POS:
+    image: 'node:18-alpine'
+    container_name: 'POS-API'
+    command: sh -c "yarn && yarn global add ts-node && yarn development"
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    working_dir: /POS
+    volumes:
+      - ./:/POS
